@@ -22,14 +22,14 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
     restart: always
   backend:
-    image: memories-api
-    container_name: memories-api
+    image: app-api
+    container_name: app-api
     ports: 
       - 3001:5000
     restart: always
   frontend:
-    image: memories-ui
-    container_name: memories-ui
+    image: app-ui
+    container_name: app-ui
     ports: 
       - 3000:80
     restart: always

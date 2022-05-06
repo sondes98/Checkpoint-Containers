@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { checkUserUniqueness, userSignupRequest } from '../../../store/actions/usersActions'
 import InputField from '../../../components/InputField/InputField';
 
@@ -133,7 +133,7 @@ class Signup extends Component {
 
     render() {
         if (this.props.isAuthenticated) {
-            return <Redirect to="/" />;
+            return <Navigate to="/" />;
         }
         const inputFields = FIELDS.map(field =>
             <InputField key={field.name}

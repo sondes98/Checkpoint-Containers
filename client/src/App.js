@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './containers/Home/Home';
 import Signup from './containers/Users/Signup/Signup';
@@ -14,14 +14,14 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <NavigationBar />
-                <Switch>
-                    <Route exact path="/article/add" component={AddArticle} />
-                    <Route path="/article/edit/:id" component={EditArticle} />
-                    <Route path="/articles/:id" component={FullArticle} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/" component={Home} />
-                </Switch>
+                <Routes>
+                    <Route path="/article/add" element={<AddArticle/>} />
+                    <Route path="/article/edit/:id" element={<EditArticle/>} />
+                    <Route path="/articles/:id" element={<FullArticle/>} />
+                    <Route path="/login" element={<Login/>} />
+                    <Route path="/signup" element={<Signup/>} />
+                    <Route path="/" element={<Home/>} />
+                </Routes>
             </div>
         );
     }

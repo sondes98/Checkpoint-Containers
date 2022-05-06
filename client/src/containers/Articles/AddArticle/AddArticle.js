@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { submitNewArticle } from '../../../store/actions/articlesActions';
 import ErrorMsg from '../../../components/ErrorMsg/ErrorMsg';
 import InputField from '../../../components/InputField/InputField';
@@ -87,7 +87,7 @@ class AddArticle extends Component {
 
     render() {
         if (!this.props.isAuthenticated) {
-            return <Redirect to="/login" />;
+            return <Navigate to="/login" />;
         }
         return (
             <div className="container">
