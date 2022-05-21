@@ -1,0 +1,33 @@
+#what you want ??
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec: 
+  storageClassname: mylocalstorage
+  accesModes: 
+    - ReadWriteOnce 
+  resources: 
+    requests: 
+      storage: 20Gi
+
+--- 
+#how do you want it implemented ??
+
+apiVersion: v1 
+kind: PersistentVolume
+metadata: 
+  name: local-storage 
+spec: 
+  storageClassname: mylocalstorage
+  capacity: 
+    storage: 20Gi
+  accesModes: 
+    - ReadWriteOnce 
+  hostpath: 
+    path: "/mnt/data"
+    type: DirectoryOrCreate 
+
+
+
+
